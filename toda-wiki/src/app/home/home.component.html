@@ -1,0 +1,13 @@
+<ActionBar title="Dota Wikipedia" class="action-bar">
+</ActionBar>
+
+<template>
+    <GridLayout>
+        <ListView class="list-group" [items]="heroName" (itemTap)="onItemTap($event)" style="height:1250px">
+            <StackLayout *ngFor="let item of heroName">
+                <Label [text]="item" class="list-group-item-heading" verticalAlignment="center"
+                    style="width: 60%"></Label>
+            </StackLayout>
+        </ListView>
+    </GridLayout>
+</template>
