@@ -7,7 +7,7 @@ export class NodeJsApi {
     }
 
     getHero() {
-        return this.http.get("http://192.168.1.10:1907/heroesfromfirebase");
+        return this.http.get("http://192.168.1.9:1907/heroesfromfirebase");
     }
 
 }
