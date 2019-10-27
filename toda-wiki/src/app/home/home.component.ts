@@ -4,23 +4,28 @@ import { NodeJsApi } from "../service/nodejs-api";
 import { HeroesModel } from "../model/heroes";
 import { alert } from "tns-core-modules/ui/dialogs";
 import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view";
+import { RandomEmojis } from "../assets/random-emojis";
 
 @Component({
     selector: "Home",
     templateUrl: "./home.component.html",
-    providers: [NodeJsApi],
-    moduleId: module.id,
+    providers: [NodeJsApi, RandomEmojis]
 })
-export class HomeComponent implements OnInit {
-    public tabSelectedIndex: number;
-    public tabSelectedIndexResult: string;
 
-    constructor(private localApiService: NodeJsApi) {
+export class HomeComponent implements OnInit {
+
+    constructor(private localApiService: NodeJsApi, private randomEmoji: RandomEmojis) {
         this.tabSelectedIndex = 0;
         this.tabSelectedIndexResult = "Profile Tab (tabSelectedIndex = 0 )";
     }
     isBusy: boolean;
     heroModel: HeroesModel;
+    tabSelectedIndex: number;
+    tabSelectedIndexResult: string;
+    selectedCharacter: string = 'Dota 2';
+    selectedCharacterId: number;
+    selectedCharacterDesc: string;
+
 
     changeTab() {
         if (this.tabSelectedIndex === 0) {
@@ -42,10 +47,10 @@ export class HomeComponent implements OnInit {
             } else if (newIndex === 2) {
                 this.tabSelectedIndexResult = "Settings Tab (tabSelectedIndex = 2 )";
             }
-            alert(`Selected index has changed ( Old index: ${args.oldIndex} New index: ${args.newIndex} )`)
-                .then(() => {
-                    console.log("Dialog closed!");
-                });
+            // alert(`Selected index has changed ( Old index: ${args.oldIndex} New index: ${args.newIndex} )`)
+            //     .then(() => {
+            //         console.log("Dialog closed!");
+            //     });
         }
     }
 
@@ -53,8 +58,9 @@ export class HomeComponent implements OnInit {
         this.isBusy = true;
         this.localApiService.getHero().subscribe((data: HeroesModel) => {
             console.log(data);
-            if (data)
+            if (data) {
                 this.heroModel = data;
+            }
         });
         this.isBusy = false;
     }
@@ -65,6 +71,9 @@ export class HomeComponent implements OnInit {
 
     getHeroName(count: any): void {
         console.log("Karakter: " + this.heroModel.hero[count].name);
+        this.selectedCharacter = this.heroModel.hero[count].localized_name;
+        this.selectedCharacterId = this.heroModel.hero[count].id;
+        this.selectedCharacterDesc = this.randomEmoji.getRandomEmojis(count);
     }
 
     ngOnInit(): void {

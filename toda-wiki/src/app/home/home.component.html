@@ -1,34 +1,37 @@
-<ActionBar title="Dota Wikipedia" class="action-bar">
+<ActionBar>
+    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+        <Image width="90px"
+            src="https://github.com/onuruzun/dota-wiki/blob/master/toda-wiki/src/app/assets/img/dota2.ico"
+            class="action-image"></Image>
+        <Label text=" Dota Wikipedia" class="action-label"></Label>
+    </StackLayout>
 </ActionBar>
 
-<TabView [(ngModel)]="tabSelectedIndex" (selectedIndexChanged)="onSelectedIndexChanged($event)">
-
+<TabView [(ngModel)]="tabSelectedIndex" (selectedIndexChanged)="onSelectedIndexChanged($event)"
+    tabBackgroundColor="#d35656" tabTextFontSize="16" tabTextColor="#f9d5bb" selectedTabTextColor="white">
     <ActivityIndicator [busy]="isBusy" class="activity-indicator">
-        <ListView *tabItem="{title: 'Characters'}" class="list-group" [items]="heroModel.hero"
+        <ListView separatorColor="white" *tabItem="{title: 'Characters'}" class="list-group" [items]="heroModel.hero"
             (itemTap)="getItemIndex($event)" style="height:1250px">
             <FlexboxLayout flexDirection="row" class="list-group-item">
-                <StackLayout *ngFor="let item of heroModel.hero" class="list-group-item">
-                    <Image src="/Users/onuruzun/Desktop/open-source/dota-wiki/toda-wiki/src/app/assets/img/pudge.jpeg">
-                    </Image>
-                    <Label [text]="item.localized_name"></Label>
+                <StackLayout *ngFor="let item of heroModel.hero" class="list-group-item" orientation="horizontal">
+                    <Image
+                        src="https://github.com/onuruzun/dota-wiki/blob/master/toda-wiki/src/app/assets/img/jugger.png"
+                        class="thumb img-circle"></Image>
+                    <Label ios:horizontalAlignment="center" text="Label 3" row="1" col="0" rowSpan="2"
+                        [text]="item.localized_name" style="color:gray;"></Label>
                 </StackLayout>
             </FlexboxLayout>
         </ListView>
     </ActivityIndicator>
 
-
     <StackLayout *tabItem="{title: 'Details'}">
         <StackLayout>
-            <Label [text]="tabSelectedIndexResult" class="h2 m-t-16 text-center" textWrap="true"></Label>
-            <Button text="Change Tab via ngModel" (tap)="changeTab()" class="btn btn-primary btn-active"></Button>
+            <Image
+                src="https://github.com/onuruzun/dota-wiki/blob/491c664c4d8857970377dce9756f6a1db44ea701/toda-wiki/src/app/assets/img/pudge.jpeg">
+            </Image>
+            <Label [text]="selectedCharacterId" class="h2 m-t-16 text-center" textWrap="true"></Label>
+            <Label [text]="selectedCharacter" class="h2 m-t-16 text-center" textWrap="true"></Label>
+            <Label [text]="selectedCharacterDesc" class="h2 m-t-16 text-center" textWrap="true"></Label>
         </StackLayout>
     </StackLayout>
-
-    <StackLayout *tabItem="{title: 'Settings'}">
-        <StackLayout>
-            <Label [text]="tabSelectedIndexResult" class="h2 m-t-16 text-center" textWrap="true"></Label>
-            <Button text="Change Tab via ngModel" (tap)="changeTab()" class="btn btn-primary btn-active"></Button>
-        </StackLayout>
-    </StackLayout>
-
 </TabView>
