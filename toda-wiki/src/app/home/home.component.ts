@@ -2,7 +2,6 @@ import { ItemEventData } from "tns-core-modules/ui/list-view"
 import { Component, OnInit } from "@angular/core";
 import { NodeJsApi } from "../service/nodejs-api";
 import { HeroesModel } from "../model/heroes";
-import { alert } from "tns-core-modules/ui/dialogs";
 import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view";
 import { RandomEmojis } from "../assets/random-emojis";
 
@@ -25,39 +24,25 @@ export class HomeComponent implements OnInit {
     selectedCharacter: string = 'Dota 2';
     selectedCharacterId: number;
     selectedCharacterDesc: string;
-
-
-    changeTab() {
-        if (this.tabSelectedIndex === 0) {
-            this.tabSelectedIndex = 1;
-        } else if (this.tabSelectedIndex === 1) {
-            this.tabSelectedIndex = 2;
-        } else if (this.tabSelectedIndex === 2) {
-            this.tabSelectedIndex = 0;
-        }
-    }
+    selector: boolean;
 
     onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
+        this.tabSelectedIndex = args.newIndex;
         if (args.oldIndex !== -1) {
             const newIndex = args.newIndex;
             if (newIndex === 0) {
-                this.tabSelectedIndexResult = "Profile Tab (tabSelectedIndex = 0 )";
             } else if (newIndex === 1) {
-                this.tabSelectedIndexResult = "Stats Tab (tabSelectedIndex = 1 )";
-            } else if (newIndex === 2) {
-                this.tabSelectedIndexResult = "Settings Tab (tabSelectedIndex = 2 )";
             }
-            // alert(`Selected index has changed ( Old index: ${args.oldIndex} New index: ${args.newIndex} )`)
-            //     .then(() => {
-            //         console.log("Dialog closed!");
-            //     });
         }
+    }
+
+    goDetailTab() {
+        this.tabSelectedIndex = 1;
     }
 
     getHero() {
         this.isBusy = true;
         this.localApiService.getHero().subscribe((data: HeroesModel) => {
-            console.log(data);
             if (data) {
                 this.heroModel = data;
             }
@@ -70,7 +55,6 @@ export class HomeComponent implements OnInit {
     }
 
     getHeroName(count: any): void {
-        console.log("Karakter: " + this.heroModel.hero[count].name);
         this.selectedCharacter = this.heroModel.hero[count].localized_name;
         this.selectedCharacterId = this.heroModel.hero[count].id;
         this.selectedCharacterDesc = this.randomEmoji.getRandomEmojis(count);
