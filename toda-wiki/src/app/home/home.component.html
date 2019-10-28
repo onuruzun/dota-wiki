@@ -1,7 +1,6 @@
 <ActionBar>
     <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-        <Image width="90px" src="/Users/onuruzun/Desktop/open-source/dota-wiki/toda-wiki/src/app/assets/img/dota2.ico"
-            class="action-image"></Image>
+        <Image width="90px" src="~/assets/img/dota2.ico" class="action-image"></Image>
         <Label text=" Dota Wikipedia" class="action-label"></Label>
     </StackLayout>
 </ActionBar>
@@ -13,8 +12,7 @@
         (itemTap)="getItemIndex($event); goDetailTab();" style="height:1250px">
         <FlexboxLayout flexDirection="row" class="list-group-item">
             <StackLayout *ngFor="let item of heroModel.hero" class="list-group-item" orientation="horizontal">
-                <Image src="/Users/onuruzun/Desktop/open-source/dota-wiki/toda-wiki/src/app/assets/img/jugger.png"
-                    class="thumb img-circle"></Image>
+                <Image src="~/assets/img/jugger.png" class="thumb img-circle"></Image>
                 <Label ios:horizontalAlignment="center" text="Label 3" row="1" col="0" rowSpan="2"
                     [text]="item.localized_name" style="color:gray;"></Label>
             </StackLayout>
@@ -23,7 +21,7 @@
 
     <StackLayout *tabItem="{title: 'Details'}">
         <StackLayout>
-            <Image src="/Users/onuruzun/Desktop/open-source/dota-wiki/toda-wiki/src/app/assets/img/pudge.jpeg">
+            <Image src="~/assets/img/pudge.jpeg">
             </Image>
             <Label [text]="selectedCharacterId" class="h2 m-t-16 text-center" textWrap="true"></Label>
             <Label [text]="selectedCharacter" class="h2 m-t-16 text-center" textWrap="true"></Label>
