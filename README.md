@@ -42,7 +42,7 @@ and enjoy! 🎉🎉
 ## Built With
 
 * [Firebase](https://firebase.google.com/docs/cli/) - Cloud Storage
-* [Nativescript](https://docs.nativescript.org/angular/start/quick-setup) -  Cross Platform Mobile App Framework /  Angular template
+* [NativeScript](https://docs.nativescript.org/angular/start/quick-setup) -  Cross Platform Mobile App Framework with Angular template
 * [Node.js](https://nodejs.org) - Backend Service
 
 
