@@ -3,10 +3,10 @@
 
 Mini wikipedia for Dota 2 ❤️
 
+![Dotadex](toda-wiki/src/app/assets/img/Dotadex.png)
+
 ## Getting Started 🤘
 Backend & Frontend
-
-
 
 
  
