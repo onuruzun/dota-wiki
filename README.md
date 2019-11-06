@@ -19,15 +19,22 @@ go to:
 - yes manually 🙄
 
 
-### Backend Service Running Steps
 
+
+## Backend Service Running Steps
+
+#### Firebase Settings Steps
+
+❗️You need get the **Firebase Admin SDK** from [Firebase Console](https://console.firebase.google.com/) with your Google Account and you should to replace **firebase-server/service-account-key.json** file with the contents of the downloaded file.
+
+and then 👇
 ```
 cd firebase-server
 npm install
 nodemon [LOCAL_IP_ADDRESS]
 ``` 
 
-### Frontend  Running Steps
+## Frontend  Running Steps
 
 ```
 cd toda-wiki
