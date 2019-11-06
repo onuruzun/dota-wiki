@@ -53,6 +53,7 @@ and enjoy! 🎉🎉
 ## Contributors
 
 * **Onur Uzun**  - [GitHub](https://github.com/onuruzun),  [Twitter](https://twitter.com/onuriart)
+* **Bahri Can Karakoyun**  - [GitHub](https://github.com/bahrikarakoyun)
 
 
 ## License
