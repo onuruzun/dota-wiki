@@ -8,11 +8,19 @@ Mini wikipedia for Dota 2 ❤️
 ## Getting Started 🤘
 Backend & Frontend
 
-
+go to: 
+**`toda-wiki/src/app/service/nodejs-api.ts`** file and, change endpoint with your local IP
  
+&&
+
+go to:
+**`toda-wiki/src/app/service/nodejs-api.ts`** file and, change endpoint with your local IP 
+
+- yes manually 🙄
+
+
 ### Backend Service Running Steps
 
- 
 ```
 cd firebase-server
 npm install
@@ -21,10 +29,6 @@ nodemon [LOCAL_IP_ADDRESS]
 
 ### Frontend  Running Steps
 
-go to 
-**`src>app>service>nodejs-api.ts`** file and, change endpoint with your local IP 
-(yes manually) 🙄
- 
 ```
 cd toda-wiki
 npm install
