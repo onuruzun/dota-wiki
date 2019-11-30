@@ -56,6 +56,8 @@ and enjoy! 🎉🎉
 * [NativeScript](https://docs.nativescript.org/angular/start/quick-setup) -  Cross Platform Mobile App Framework with Angular template
 * [Node.js](https://nodejs.org) - Backend Service
 
+## Article
+* [TR] Blog Post on Medium: [Dotadex](https://medium.com/@onuria/dotadex-b%C3%B6l%C3%BCm-3-ffec1bb9c4ed?source=friends_link&sk=d6f0ed2f05743c6e169dfb5ffc3e80ba)
 
 ## Contributors
 
